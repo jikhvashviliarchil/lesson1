@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Studio</title>
+
+<style>
+
+/* ------------------ GLOBAL ------------------ */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f5f5f5;
+color:#333;
+line-height:1.6;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+section{
+padding:80px 0;
+}
+
+h1,h2,h3{
+margin-bottom:20px;
+}
+
+p{
+margin-bottom:15px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:#4f46e5;
+color:white;
+text-decoration:none;
+border-radius:6px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#3730a3;
+}
+
+/* ------------------ NAVBAR ------------------ */
+
+header{
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:70px;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#4f46e5;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+}
+
+.nav-links li{
+margin-left:25px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* ------------------ HERO ------------------ */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+background:linear-gradient(135deg,#4f46e5,#6366f1);
+color:white;
+text-align:center;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:30px;
+}
+
+/* ------------------ ABOUT ------------------ */
+
+.about{
+background:white;
+}
+
+.about-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:10px;
+}
+
+/* ------------------ SERVICES ------------------ */
+
+.services{
+background:#f9fafb;
+}
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+.service-card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+}
+
+/* ------------------ PORTFOLIO ------------------ */
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.portfolio-item{
+position:relative;
+overflow:hidden;
+}
+
+.portfolio-item img{
+width:100%;
+display:block;
+border-radius:8px;
+}
+
+.overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+color:white;
+font-size:20px;
+transition:0.3s;
+}
+
+.portfolio-item:hover .overlay{
+opacity:1;
+}
+
+/* ------------------ CONTACT ------------------ */
+
+.contact{
+background:white;
+}
+
+.contact-form{
+max-width:600px;
+margin:auto;
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+/* ------------------ FOOTER ------------------ */
+
+footer{
+background:#111;
+color:#aaa;
+text-align:center;
+padding:30px;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+
+@media(max-width:900px){
+
+.services-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.portfolio-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.about-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.nav-links{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:white;
+flex-direction:column;
+display:none;
+}
+
+.nav-links li{
+margin:15px 0;
+text-align:center;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.services-grid{
+grid-template-columns:1fr;
+}
+
+.portfolio-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">ModernStudio</div>
+
+<div class="menu-toggle" id="menuToggle">
+☰
+</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<h1>Build Your Digital Presence</h1>
+
+<p>Creative design and modern web solutions</p>
+
+<a href="#services" class="btn">Our Services</a>
+
+</div>
+
+</section>
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+<div>
+<h2>About Us</h2>
+<p>We are a modern digital studio focused on building professional websites and web applications.</p>
+<p>Our mission is to help businesses grow online with clean design, fast performance, and powerful functionality.</p>
+<a href="#" class="btn">Learn More</a>
+</div>
+
+<img src="https://picsum.photos/500/400">
+
+</div>
+
+</section>
+
+<section class="services" id="services">
+
+<div class="container">
+
+<h2 style="text-align:center;">Our Services</h2>
+
+<div class="services-grid">
+
+<div class="service-card">
+<h3>Web Design</h3>
+<p>Beautiful and modern designs that make your brand stand out online.</p>
+</div>
+
+<div class="service-card">
+<h3>Web Development</h3>
+<p>Fast, responsive, and powerful websites built with modern technologies.</p>
+</div>
+
+<div class="service-card">
+<h3>SEO Optimization</h3>
+<p>Improve your search ranking and grow your audience.</p>
+</div>
+
+<div class="service-card">
+<h3>UI/UX Design</h3>
+<p>Intuitive interfaces and smooth user experiences.</p>
+</div>
+
+<div class="service-card">
+<h3>E-Commerce</h3>
+<p>Online stores designed to convert visitors into customers.</p>
+</div>
+
+<div class="service-card">
+<h3>Support</h3>
+<p>Reliable maintenance and long-term website support.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="portfolio">
+
+<div class="container">
+
+<h2 style="text-align:center;">Portfolio</h2>
+
+<div class="portfolio-grid">
+
+<div class="portfolio-item">
+<img src="https://picsum.photos/400/300?1">
+<div class="overlay">Project One</div>
+</div>
+
+<div class="portfolio-item">
+<img src="https://picsum.photos/400/300?2">
+<div class="overlay">Project Two</div>
+</div>
+
+<div class="portfolio-item">
+<img src="https://picsum.photos/400/300?3">
+<div class="overlay">Project Three</div>
+</div>
+
+<div class="portfolio-item">
+<img src="https://picsum.photos/400/300?4">
+<div class="overlay">Project Four</div>
+</div>
+
+<div class="portfolio-item">
+<img src="https://picsum.photos/400/300?5">
+<div class="overlay">Project Five</div>
+</div>
+
+<div class="portfolio-item">
+<img src="https://picsum.photos/400/300?6">
+<div class="overlay">Project Six</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<h2 style="text-align:center;">Contact Us</h2>
+
+<form class="contact-form" id="contactForm">
+
+<div class="form-group">
+<input type="text" id="name" placeholder="Your Name">
+</div>
+
+<div class="form-group">
+<input type="email" id="email" placeholder="Your Email">
+</div>
+
+<div class="form-group">
+<textarea id="message" placeholder="Your Message"></textarea>
+</div>
+
+<button class="btn">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 ModernStudio. All rights reserved.</p>
+
+</footer>
+
+<script>
+
+/* -------- MOBILE MENU -------- */
+
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navLinks");
+
+toggle.addEventListener("click",()=>{
+
+if(nav.style.display==="flex"){
+nav.style.display="none";
+}else{
+nav.style.display="flex";
+}
+
+});
+
+/* -------- FORM VALIDATION -------- */
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let message = document.getElementById("message").value;
+
+if(name==="" || email==="" || message===""){
+alert("Please fill all fields");
+return;
+}
+
+if(!email.includes("@")){
+alert("Invalid email");
+return;
+}
+
+alert("Message sent successfully!");
+
+form.reset();
+
+});
+
+/* -------- SCROLL EFFECT -------- */
+
+window.addEventListener("scroll",()=>{
+
+let header = document.querySelector("header");
+
+if(window.scrollY > 50){
+header.style.boxShadow="0 4px 20px rgba(0,0,0,0.15)";
+}else{
+header.style.boxShadow="0 2px 10px rgba(0,0,0,0.1)";
+}
+
+});
+
+</script>
+
+</body>
+</html>
